@@ -1,6 +1,5 @@
 import { Router } from "express";
 import {
-  Function,
   getAllNoticesFunction,
   createNoticeFunction,
   updateNoticeFunction,
