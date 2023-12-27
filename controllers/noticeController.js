@@ -2,7 +2,14 @@ import Notice from "../models/Notice.js";
 
 export const getAllNoticesFunction = async (req, res) => {
   try {
-    const notices = await Notice.find().populate("user", "name email");
+    const { category } = req.query;
+    let query = {};
+
+    if (category) {
+      query = { category };
+    }
+
+    const notices = await Notice.find(query);
     res.status(200).json(notices);
   } catch (error) {
     console.error(error);
